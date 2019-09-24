@@ -4,3 +4,4 @@ from .path import *
 from .connector import *
 from .exceptions import *
 from .network import *
+from .structure import *

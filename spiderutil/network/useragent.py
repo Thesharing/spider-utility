@@ -11,4 +11,8 @@ class UserAgent:
 
     @staticmethod
     def random():
+        """
+        Return a random user-agent string.
+        :return: User-Agent string
+        """
         return USER_AGENTS[random.randrange(0, len(USER_AGENTS))]

@@ -2,9 +2,21 @@ import logging
 
 
 class Log:
+    """
+    Factory that create loggers
+    The logger will avoid duplicate handlers
+    """
     @staticmethod
     def create_logger(name: str = 'Logger', path: str = './logger.log',
                       level: str = 'INFO', mode: str = 'a', ):
+        """
+
+        :param name: str, name of the logger
+        :param path: str, the path of logs
+        :param level: str, specify the level of log, including `DEBUG`, `INFO`, `WARNING`, `ERROR` and `CRITICAL`
+        :param mode: str, specify the write mode of log file, including `w` (overwrite) and `a` (append)
+        :return:
+        """
         logger = logging.getLogger(name)
         if len(logger.handlers) == 0:
             logger.propagate = False
