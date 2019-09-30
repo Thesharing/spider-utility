@@ -45,3 +45,9 @@ Utilities for spider, including connectors to databases, path generators, logger
 # Todo
 
 * Fulfill the docs
+
+* Multi-thread / multi-processing / Asycio
+
+* Decorator
+
+* Monitor
