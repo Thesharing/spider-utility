@@ -17,4 +17,8 @@ class Dict:
         return self
 
     def __str__(self):
-        return str({k: v for k, v in self.__dict__.items() if k[0] != '_'})
+        return str(self.dict)
+
+    @property
+    def dict(self):
+        return {k: v for k, v in self.__dict__.items() if k[0] != '_'}

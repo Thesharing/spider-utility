@@ -6,8 +6,9 @@ class MediaType(Enum):
     Enumeration of medias, at present the type is categorized as `video`, `photo` and `other`.
     """
     video = 1
-    photo = 2
-    other = 3
+    image = 2
+    gif = 3
+    other = 4
 
     @staticmethod
     def convert(name: str):

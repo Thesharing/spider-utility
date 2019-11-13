@@ -8,4 +8,8 @@ class Database:
 
     @abstractmethod
     def count(self):
-        pass
+        raise NotImplementedError
+
+    @abstractmethod
+    def add(self, item):
+        raise NotImplementedError

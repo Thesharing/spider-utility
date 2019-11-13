@@ -24,7 +24,7 @@ class Redis(Database):
 
     @abstractmethod
     def count(self):
-        pass
+        raise NotImplementedError
 
 
 class RedisSet(Redis):
@@ -58,6 +58,9 @@ class RedisSet(Redis):
 
     def flush_all(self):
         return self.conn.delete(self.name)
+
+    def __contains__(self, item):
+        return self.is_member(item)
 
 
 class RedisHash(Redis):
@@ -99,3 +102,6 @@ class RedisHash(Redis):
 
     def increment(self, key, value: int = 1):
         return self.conn.hincrby(self.name, key, value)
+
+    def __contains__(self, item):
+        return self.exists(item)

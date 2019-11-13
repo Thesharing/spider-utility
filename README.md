@@ -10,6 +10,8 @@ Utilities for spider, including connectors to databases, path generators, logger
 
 #### Redis
 
+#### LocalFolder
+
 #### LocalFile
 
 ### Network

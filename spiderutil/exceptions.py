@@ -33,3 +33,10 @@ class NullValueException(SpiderException):
     def __init__(self, value=''):
         super(NullValueException, self).__init__(value)
         self.msg = 'Null value'
+
+
+class NullPrimarySearchKeyException(SpiderException):
+
+    def __init__(self, value=''):
+        super(NullPrimarySearchKeyException, self).__init__(value)
+        self.msg = 'Primary search key not specified.'
