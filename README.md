@@ -42,9 +42,27 @@ Utilities for spider, including connectors to databases, path generators, logger
 
 #### Media Type
 
-# How to contribute
+## Recommend packages
 
-# Todo
+* BeautidfulSoup: beautifulsoup4
+
+* Parsel: parsel
+
+* Brotli: brotli
+
+## How to contribute
+
+### Distribute
+
+Refer to the official doc: https://packaging.python.org/guides/distributing-packages-using-setuptools/
+
+```bash
+python setup.py sdist
+python setup.py bdist_wheel --universal
+twine upload dist/*
+```
+
+## Todo
 
 * Fulfill the docs
 
