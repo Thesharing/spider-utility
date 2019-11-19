@@ -6,7 +6,8 @@ from .base import Database
 
 class LocalFolder(Database):
     def __init__(self, folder_path: str, file_type=None):
-        super(LocalFolder, self).__init__(os.path.basename(folder_path), 'LocalFolder')
+        super(LocalFolder, self).__init__(os.path.basename(folder_path),
+                                          'LocalFolder')
         self.folder_path = folder_path
         self.file_type = file_type
 
@@ -14,11 +15,12 @@ class LocalFolder(Database):
         if os.path.isdir(self.folder_path):
             if self.file_type:
                 return len([name for name in os.listdir(self.folder_path) if
-                            os.path.isfile(os.path.join(self.folder_path, name)) and os.path.splitext(
-                                name) == self.file_type])
+                            os.path.isfile(os.path.join(self.folder_path, name))
+                            and os.path.splitext(name) == self.file_type])
             else:
                 return len([name for name in os.listdir(self.folder_path)
-                            if os.path.isfile(os.path.join(self.folder_path, name))])
+                            if os.path.isfile(os.path.join(self.folder_path,
+                                                           name))])
         else:
             return 0
 
@@ -33,7 +35,8 @@ class LocalFolder(Database):
 
 class LocalFile(Database):
     def __init__(self, file_path: str, encoding='utf-8'):
-        super(LocalFile, self).__init__(os.path.basename(file_path), 'LocalFile')
+        super(LocalFile, self).__init__(os.path.basename(file_path),
+                                        'LocalFile')
         self.file_path = file_path
         self.data = None
         self.encoding = encoding

@@ -25,7 +25,8 @@ class MongoDB(Database):
 
     def check_connection(self):
         client = pymongo.MongoClient(host=self.host, port=self.port,
-                                     serverSelectionTimeoutMS=3000, connectTimeoutMS=3000)
+                                     serverSelectionTimeoutMS=3000,
+                                     connectTimeoutMS=3000)
         client.admin.command('ismaster')
 
     def insert(self, documents):
@@ -43,7 +44,8 @@ class MongoDB(Database):
     def update(self, filter, update, all=False):
         """
         :param filter:
-        :param update: Update operations, check https://docs.mongodb.com/manual/reference/operator/update/#id1 for more.
+        :param update: Update operations, check
+        https://docs.mongodb.com/manual/reference/operator/update/#id1 for more.
         :param all:
         :return:
         """
@@ -53,7 +55,8 @@ class MongoDB(Database):
             return self.conn.update_one(filter=filter, update=update)
 
     def replace(self, filter, replacement, **kwargs):
-        return self.conn.replace_one(filter=filter, replacement=replacement, **kwargs)
+        return self.conn.replace_one(filter=filter, replacement=replacement,
+                                     **kwargs)
 
     def find(self, filter, *args, all=False, **kwargs):
         if all:

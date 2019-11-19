@@ -13,16 +13,19 @@ class StoreByUserName(PathGenerator):
         self.users = {}
         self._init_all_users()
 
-    def generate(self, user_name: str, media_type: Union[str, MediaType], **kwargs):
+    def generate(self, user_name: str, media_type: Union[str, MediaType],
+                 **kwargs):
         if user_name not in self.users:
             # If not appeared before
             self.users[user_name] = 1
         count = self.users[user_name]
         # The count is always the index of next media file
         self.users[user_name] += 1
-        return self.join('{0}-{1}.{2}'.format(user_name, count, self.ext(media_type)))
+        return self.join(
+            '{0}-{1}.{2}'.format(user_name, count, self.ext(media_type)))
 
-    def direct(self, file_name: str, media_type: Union[str, MediaType] = None, **kwargs):
+    def direct(self, file_name: str, media_type: Union[str, MediaType] = None,
+               **kwargs):
         if media_type:
             return self.join('{0}.{1}'.format(file_name, self.ext(media_type)))
         else:
@@ -31,11 +34,13 @@ class StoreByUserName(PathGenerator):
     def _init_all_users(self):
         # Traverse all the files, the file name should be '[Username]-[Index].[Ext]]'
         for file_name in os.listdir(self.folder_path):
-            match = re.search(r'(.+)-(\d+)(?!.+)', os.path.splitext(file_name)[0])
+            match = re.search(r'(.+)-(\d+)(?!.+)',
+                              os.path.splitext(file_name)[0])
             if match is not None:
                 user_name = match.group(1)
                 count = int(match.group(2))
-                self.users[user_name] = max(self.users[user_name], count + 1) if user_name in self.users else count + 1
+                self.users[user_name] = max(self.users[user_name], count + 1) \
+                    if user_name in self.users else count + 1
 
 
 class StoreByUserNamePerFolder(PathGenerator):
@@ -44,16 +49,20 @@ class StoreByUserNamePerFolder(PathGenerator):
         PathGenerator.__init__(self, folder_path)
         self.users = {}
 
-    def generate(self, user_name: str, media_type: Union[str, MediaType], **kwargs):
+    def generate(self, user_name: str, media_type: Union[str, MediaType],
+                 **kwargs):
         # Check if the folder named by username exists
         self.check(os.path.join(self.folder_path, user_name))
         if user_name not in self.users:
             self._init_user(user_name)
         count = self.users[user_name]
         self.users[user_name] += 1
-        return self.join(os.path.join(user_name, '{1}.{2}'.format(user_name, count, self.ext(media_type))))
+        return self.join(os.path.join(user_name,
+                                      '{1}.{2}'.format(user_name, count,
+                                                       self.ext(media_type))))
 
-    def direct(self, file_name: str, media_type: Union[str, MediaType] = None, **kwargs):
+    def direct(self, file_name: str, media_type: Union[str, MediaType] = None,
+               **kwargs):
         if media_type:
             return self.join(file_name)
         else:

@@ -2,7 +2,8 @@ import requests
 import sys
 
 from .useragent import UserAgent
-from ..exceptions import *
+from ..exceptions import NullValueException, UnauthorizedException, \
+    NetworkException, RetryLimitExceededException, SpiderException
 
 
 class Session:
@@ -44,7 +45,8 @@ class Session:
                 elif r.status_code == 401:
                     raise UnauthorizedException(url)
                 else:
-                    raise NetworkException('Error Code: {} - {}'.format(r.status_code, url))
+                    raise NetworkException(
+                        'Error Code: {} - {}'.format(r.status_code, url))
             except (requests.exceptions.RequestException, SpiderException) as e:
                 retry -= 1
                 if retry <= 0:

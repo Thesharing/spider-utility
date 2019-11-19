@@ -37,9 +37,11 @@ class TextDict(dict):
     @staticmethod
     def load(source):
         if isinstance(source, IOBase):
-            return json.load(source, object_hook=lambda pairs: TextDict(pairs.items()))
+            return json.load(source,
+                             object_hook=lambda pairs: TextDict(pairs.items()))
         elif isinstance(source, str):
-            return json.loads(source, object_hook=lambda pairs: TextDict(pairs.items()))
+            return json.loads(source,
+                              object_hook=lambda pairs: TextDict(pairs.items()))
 
     def __getattr__(self, attr):
         try:

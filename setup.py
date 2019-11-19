@@ -10,7 +10,7 @@ setup(
     version='0.1.5',
     packages=['spiderutil', 'spiderutil.path', 'spiderutil.connector',
               'spiderutil.network', 'spiderutil.structure'],
-    url='https://github.com/Thesharing/spiderutil',
+    url='https://github.com/Thesharing/spider-utility',
     license='MIT',
     author='Thesharing',
     author_email='',
