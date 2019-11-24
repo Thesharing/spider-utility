@@ -20,11 +20,11 @@ class API(Session):
             self._session = session
             self._name = name
 
-        def get(self):
-            return urlparse.urljoin(self._session.url, self._name)
+        def get(self, **kwargs):
+            return self._session.get(urlparse.urljoin(self._session.url, self._name), **kwargs)
 
-        def post(self):
-            return self._session.post(urlparse.urljoin(self._session.url, self._name))
+        def post(self, **kwargs):
+            return self._session.post(urlparse.urljoin(self._session.url, self._name), **kwargs)
 
         def __getattr__(self, attr):
             return API.Callable(self._session, '{}/{}'.format(self._name, attr))

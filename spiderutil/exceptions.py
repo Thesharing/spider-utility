@@ -40,3 +40,10 @@ class NullPrimarySearchKeyException(SpiderException):
     def __init__(self, value=''):
         super(NullPrimarySearchKeyException, self).__init__(value)
         self.msg = 'Primary search key not specified.'
+
+
+class AuthenticationFailedException(SpiderException):
+
+    def __init__(self, value=''):
+        super(AuthenticationFailedException, self).__init__(value)
+        self.msg = 'Authentication Failed.'

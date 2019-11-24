@@ -7,7 +7,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='spiderutil',
-    version='0.1.5',
+    version='0.1.6',
     packages=['spiderutil', 'spiderutil.path', 'spiderutil.connector',
               'spiderutil.network', 'spiderutil.structure'],
     url='https://github.com/Thesharing/spider-utility',

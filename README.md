@@ -1,5 +1,10 @@
 # Spider Utility
 
+![Version](https://img.shields.io/pypi/v/spiderutil)
+![Download](https://img.shields.io/pypi/dm/spiderutil)
+![License](https://img.shields.io/pypi/l/spiderutil)
+![Status](https://img.shields.io/pypi/status/spiderutil)
+
 Utilities for spider, including connectors to databases, path generators, loggers and exceptions.
 
 ## Docs
@@ -31,6 +36,8 @@ Utilities for spider, including connectors to databases, path generators, logger
 ### Data Structure
 
 #### Dict
+
+#### TextDict
 
 ### Log
 
