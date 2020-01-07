@@ -1,7 +1,7 @@
 build
+doc/_build
 dist
 *.egg-info
-
 __pycache__
 
 .vscode

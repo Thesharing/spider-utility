@@ -24,6 +24,7 @@ class Session:
     def request(self, method, url, **kwargs) -> requests.Response:
         """
         Package the request method in requests.
+
         :param url: URL address
         :param method: get/post method
         :param kwargs: the arguments like url, proxies, timeout, and etc
@@ -58,6 +59,7 @@ class Session:
     def get(self, url, **kwargs) -> requests.Response:
         """
         HTTP GET Request
+
         :param url: URL address
         :param kwargs: network argument like proxies, timeout, and etc
         :return: class `Response <Response>` object
@@ -67,6 +69,7 @@ class Session:
     def post(self, url, **kwargs) -> requests.Response:
         """
         HTTP POST Request
+
         :param url: URL address
         :param kwargs: network argument like proxies, timeout, and etc
         :return: class `Response <Response>` object
